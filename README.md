@@ -8,7 +8,7 @@ Serverless speech-to-text
 
 To deploy:
 - Enable all appropriate APIs
-- Update service permissions (https://photos.app.goo.gl/tHcgNTiRTGF6jDLV7)
+- Update service permissions 
 - deploy function:      gcloud functions deploy S2T2 --trigger-bucket new-audio
 
 Products involved:
