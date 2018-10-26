@@ -10,6 +10,7 @@ To deploy:
 - Enable all appropriate APIs
 - Update service permissions 
 - deploy function:      gcloud functions deploy S2T2 --trigger-bucket new-audio
+- deploy function:      gcloud functions deploy DLPQuarantineGCS --trigger-bucket new-audio 
 
 Products involved:
 - Google Cloud storage
