@@ -14,14 +14,8 @@ exports.S2T2 = (event, callback) => {
 var stor = event.data;
 console.log('Processing file: ' + stor.name);
 console.log('Processing location: ' + stor.bucket);
-//var a = 'https://storage.cloud.google.com/new-audio/';
 var b = stor.name;
-//var b += a;
-//var filename = stor.bucket;
-//var filename += b;
-//var filename = a+b+c;
-var filename = 'https://storage.cloud.google.com/new-audio/brooklyn.wav';
-//console.log('Processing concatenated location of the file:    ' + filename);
+var filename = 'https://storage.cloud.google.com/new-audio/brooklyn.wav'; //unused, to verify
 
 var fname = '/tmp/' +b;
 console.log('fname is ' + fname);
@@ -72,11 +66,7 @@ client
     var logger = fs.createWriteStream(fname, {
     flags: 'a' // 'a' means appending (old data will be preserved)
     });
-    /*-----------------------------------------------
-    var logger = fs.createWriteStream(fname, {
-    flags: 'a' // 'a' means appending (old data will be preserved)
-    });
-    */
+   
     logger.write(transcription);
     logger.end();
 
@@ -84,17 +74,10 @@ client
     var storage2 = require('@google-cloud/storage')();
     var logBucket = storage2.bucket('quarantine2');
     
-    // logBucket.upload('/tmp/log.txt', function(err, file, apiResponse) {
     logBucket.upload(fname, function(err, file, apiResponse) {
-    // this is actually working
     console.log(`Moved the file text output to a new storage bucket at  ` + fname);
     });
-    /*
-    logBucket.upload(fname, function(err, file, apiResponse) {
-    // this is actually working
-    console.log(`Moved the RENAMED file text output to a new storage bucket`);
-    });
-    */
+    
 
    
   })
