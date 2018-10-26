@@ -70,10 +70,11 @@ client
 
     //begin moving the text output to a bucket
     var storage2 = require('@google-cloud/storage')();
-    var logBucket = storage2.bucket('new-audio');
+    var logBucket = storage2.bucket('quarantine2');
     
     logBucket.upload('/tmp/log.txt', function(err, file, apiResponse) {
     // this is actually working
+    console.log(`Moved the file text output to a new storage bucket`);
     });
       
   })
