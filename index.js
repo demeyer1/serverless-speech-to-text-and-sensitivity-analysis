@@ -4,13 +4,10 @@
  * @param {!Object} event Event payload and metadata.
  * @param {!Function} callback Callback function to signal completion.
  * https://cloud.google.com/speech-to-text/docs/basics
- * https://cloud.google.com/speech-to-text/docs/reference/libraries#client-libraries-resources-nodejs
+ * https://cloud.google.com/speech-to-text/docs/sync-recognize#speech-sync-recognize-nodejs
  */
-const speech = require('@google-cloud/speech');
-const fs = require('fs');
  
 // Creates a client
-const client = new speech.SpeechClient();
  
 const Storage = require('@google-cloud/storage');
 const storage = Storage();
@@ -25,7 +22,7 @@ BEGINNING LOGIC HERE
 ****************************************
 */
 
-exports.S2T = (event, callback) => {
+exports.S2T2 = (event, callback) => {
   
 var stor = event.data;
 console.log('Processing file: ' + stor.name);
@@ -39,15 +36,14 @@ console.log('Processing location: ' + stor.bucket);
 var filename = 'https://storage.cloud.google.com/new-audio/brooklyn.wav';
 console.log('Processing concatenated location of the file:    ' + filename);
 
-const gcsUri = 'gs://new-audio/brooklyn.flac';
-console.log('Processing target:    ' + gcsUri);
+const speech = require('@google-cloud/speech');
+const client = new speech.SpeechClient();
 
-const encoding = 'LINEAR16';
+const gcsUri = 'gs://new-audio/brooklyn2.flac';
+console.log('Processing URI target:    ' + gcsUri);
+const encoding = 'FLAC';
 sampleRateHertz = 16000;
 const languageCode = 'en-US';
-
-// Creates a client
-const client = new speech.SpeechClient();
 
 //setup call
 const config = {
@@ -64,22 +60,23 @@ const request = {
   audio: audio,
 };
 
-console.log(`entering client execution`);
+console.log(`entering client execution and creating the client service call`);
 
 client
   .recognize(request)
   .then(data => {
+    console.log(`Transcription underway`);  
     const response = data[0];
     const transcription = response.results
       .map(result => result.alternatives[0].transcript)
       .join('\n');
-    console.log(`Transcription underway`);  
     console.log(`Transcription: ${transcription}`);
   })
   .catch(err => {
     console.error('ERROR:', err);
   });
 
+console.log(`exiting client execution`);
 
 
   
