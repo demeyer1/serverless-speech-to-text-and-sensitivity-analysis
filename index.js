@@ -1,26 +1,13 @@
 /**
- * Triggered from a change to a Cloud Storage bucket.
- *
- * @param {!Object} event Event payload and metadata.
- * @param {!Function} callback Callback function to signal completion.
  * https://cloud.google.com/speech-to-text/docs/basics
  * https://cloud.google.com/speech-to-text/docs/sync-recognize#speech-sync-recognize-nodejs
+ * https://cloud.google.com/nodejs/docs/reference/storage/1.6.x/Bucket 
  */
- 
-// Creates a client
- 
+  
 const Storage = require('@google-cloud/storage');
 const storage = Storage();
-
-
+const fs = require('fs');
 const https = require('https');
-
-
-/* 
-****************************************
-BEGINNING LOGIC HERE
-****************************************
-*/
 
 exports.S2T2 = (event, callback) => {
   
@@ -35,6 +22,7 @@ console.log('Processing location: ' + stor.bucket);
 //var filename = a+b+c;
 var filename = 'https://storage.cloud.google.com/new-audio/brooklyn.wav';
 console.log('Processing concatenated location of the file:    ' + filename);
+
 
 const speech = require('@google-cloud/speech');
 const client = new speech.SpeechClient();
@@ -62,6 +50,7 @@ const request = {
 
 console.log(`entering client execution and creating the client service call`);
 
+
 client
   .recognize(request)
   .then(data => {
@@ -71,14 +60,27 @@ client
       .map(result => result.alternatives[0].transcript)
       .join('\n');
     console.log(`Transcription: ${transcription}`);
+    console.log('Transcriprtion 2: ' + transcription);
+    //this is the beginning of writing to text to temporary container storage
+    var logger = fs.createWriteStream('/tmp/log.txt', {
+    flags: 'a' // 'a' means appending (old data will be preserved)
+    });
+    logger.write(transcription);
+    logger.end();
+
+    //begin moving the text output to a bucket
+    var storage2 = require('@google-cloud/storage')();
+    var logBucket = storage2.bucket('new-audio');
+    
+    logBucket.upload('/tmp/log.txt', function(err, file, apiResponse) {
+    // this is actually working
+    });
+      
   })
   .catch(err => {
     console.error('ERROR:', err);
   });
-
-console.log(`exiting client execution`);
-
-
-  
+console.log(`COMPLETED: exiting client execution`);
+ 
 callback();
 };
