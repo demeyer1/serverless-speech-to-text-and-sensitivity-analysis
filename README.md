@@ -1,6 +1,12 @@
 # s2t
 
-Serverless speech-to-text 
+Record a flac file on mobile phone, upload to storage bucket, serverless workflow will kickoff that:
+- Proccesses flac in speech to text API
+- Uses local memory in GCF to write a text conversion
+- Takes text conversion and kicks off a DLP scan
+- Takes the outcome from the DLP scan and classifies the text log as either sensitive or non-sensitive
+
+Serverless speech-to-text benefits:
 - With automated scanning and classification of sensitive content
 - Using ephemeral local storage
 - <150 lines of code
@@ -19,8 +25,3 @@ Products involved:
 - Google DLP API
 - Google Speech to Text API
 
-Record a flac file on mobile phone, upload to storage bucket, serverless workflow will kickoff that:
-- Proccesses flac in speech to text API
-- Uses local memory in GCF to write a text conversion
-- Takes text conversion and kicks off a DLP scan
-- Takes the outcome from the DLP scan and classifies the text log as either sensitive or non-sensitive
