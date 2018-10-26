@@ -31,7 +31,11 @@ const MAX_FINDINGS = 0;
 const INFO_TYPES = [
   { name: 'PHONE_NUMBER' },
   { name: 'EMAIL_ADDRESS' },
-  { name: 'US_SOCIAL_SECURITY_NUMBER' }
+  { name: 'US_SOCIAL_SECURITY_NUMBER' },
+  { name: 'ETHNIC_GROUP' },
+  { name: 'FEMALE_NAME' },
+  { name: 'LOCATION' },
+
 ];
 
 // The bucket the to-be-scanned files are uploaded to
