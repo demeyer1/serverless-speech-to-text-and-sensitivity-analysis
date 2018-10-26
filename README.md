@@ -11,6 +11,15 @@ To deploy:
 - Update service permissions (https://photos.app.goo.gl/tHcgNTiRTGF6jDLV7)
 - deploy function:      gcloud functions deploy S2T2 --trigger-bucket new-audio
 
-Flow:
-1/ Upload flac file to storage bucket
-2/ Send file to speech to text ML
+Products involved:
+- Google Cloud storage
+- Google Cloud functions
+- Google Pub/Sub
+- Google DLP API
+- Google Speech to Text API
+
+Record a flac file on mobile phone, upload to storage bucket, serverless workflow will kickoff that:
+- Proccesses flac in speech to text API
+- Uses local memory in GCF to write a text conversion
+- Takes text conversion and kicks off a DLP scan
+- Takes the outcome from the DLP scan and classifies the text log as either sensitive or non-sensitive
