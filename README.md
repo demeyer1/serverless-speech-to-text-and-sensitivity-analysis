@@ -1,5 +1,5 @@
 # s2t
-Note: This code is intended as a sample only, it is not ready to be run in production. Do not run this in production.
+Note: This code is intended as a sample only, and while it will build and run - it should not be run in production as-is without first reviewing for effiency and security. 
 
 Serverless speech-to-text and sensitivity analysis benefits:
 - Stateless, autoscaling, containers that will scale out to hundreds of audio uploads per minute
