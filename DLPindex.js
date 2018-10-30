@@ -39,15 +39,15 @@ const INFO_TYPES = [
 ];
 
 // The bucket the to-be-scanned files are uploaded to
-const STAGING_BUCKET = 'quarantine2';
+const STAGING_BUCKET = 'your bucketname'; //replace with your bucket name
 // The bucket to move "safe" files to
-const NONSENSITIVE_BUCKET = 'nonsensitive2';
+const NONSENSITIVE_BUCKET = 'your bucketname'; //replace with your bucket name
 
 // The bucket to move "unsafe" files to
-const SENSITIVE_BUCKET = 'sensitive2';
+const SENSITIVE_BUCKET = 'your bucketname'; //replace with your bucket name
 
 // The project ID to run the DLP API call under
-const PROJECT_ID = 'smiling-cistern-220517';
+const PROJECT_ID = 'your projectname'; //replace with your project name
 
 // Pub/Sub topic to notify once the  DLP job completes
 const PUB_SUB_TOPIC = 'topic2';
