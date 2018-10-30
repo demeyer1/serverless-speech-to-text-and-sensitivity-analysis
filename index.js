@@ -72,7 +72,7 @@ client
 
     //begin moving the text output to a bucket
     var storage2 = require('@google-cloud/storage')();
-    var logBucket = storage2.bucket('quarantine2');
+    var logBucket = storage2.bucket('<your bucket name>'); //replace with your bucket name
     
     logBucket.upload(fname, function(err, file, apiResponse) {
     console.log(`Moved the file text output to a new storage bucket at  ` + fname);
@@ -91,10 +91,3 @@ callback();
 };
 
 
-
-/*
-    logBucket.upload('/tmp/${b}.txt', function(err, file, apiResponse) {
-    // this is actually working
-    console.log(`Moved the file text output to a new storage bucket` + b);
-    });
-*/  
