@@ -1,7 +1,7 @@
 # s2t
 Note: This code is intended as a sample only, it is not ready to be run in production. Do not run this in production.
 
-Serverless speech-to-text benefits:
+Serverless speech-to-text and sensitivity analysis benefits:
 - Stateless, autoscaling, containers that will scale out to hundreds of audio uploads per minute
 - Using Google neural network to identify language, then translate audio to speech in correct language
 - Then automatically spins up secondary containers via functions to scan and classify sensitive content
