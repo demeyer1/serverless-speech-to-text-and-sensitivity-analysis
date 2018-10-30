@@ -9,6 +9,7 @@ Serverless speech-to-text and sensitivity analysis benefits:
 - <150 lines of code per function/container
 - Can be developed and depoyed fully from a Chromebook
 - All web endpoints, no need to use CLI except upon deploying initial code
+- All 1P events eliminates a signifigant amount of configuration and security 
 
 To deploy:
 - Enable all appropriate APIs
