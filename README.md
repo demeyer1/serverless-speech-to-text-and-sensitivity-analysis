@@ -1,6 +1,6 @@
 ![Conceptual architecture, note actual implementation includes more steps](Screenshot%202018-10-30%20at%202.25.06%20PM.png "Description goes here")
 
-# s2t
+# Serverless speech to text and sensitivity analysis
 Note: This code is intended as a sample only, and while it will build and run - it should not be run in production as-is without first reviewing for effiency and security. 
 
 Serverless speech-to-text and sensitivity analysis benefits:
