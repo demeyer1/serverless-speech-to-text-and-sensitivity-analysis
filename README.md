@@ -1,4 +1,4 @@
-![Conceptual architecture, note actual implementation includes more steps](serverless-speech-to-text-and-sensitivity-analysis/Screenshot 2018-10-30 at 2.25.06 PM.png "Description goes here")
+![Conceptual architecture, note actual implementation includes more steps](Screenshot%202018-10-30%20at%202.25.06%20PM.png "Description goes here")
 
 # s2t
 Note: This code is intended as a sample only, and while it will build and run - it should not be run in production as-is without first reviewing for effiency and security. 
