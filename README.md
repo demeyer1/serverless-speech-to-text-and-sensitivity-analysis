@@ -1,3 +1,5 @@
+Conceptual diagram only, please do not consider the below a technical architecture 
+
 ![Conceptual architecture, note actual implementation includes more steps](Screenshot%202018-10-30%20at%202.25.06%20PM.png "Description goes here")
 
 # Serverless speech to text and sensitive data identification
