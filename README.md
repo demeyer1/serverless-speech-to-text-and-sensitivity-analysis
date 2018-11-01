@@ -8,7 +8,7 @@ Note: This code is intended as a sample only, and while it will build and run - 
 Serverless speech-to-text and sensitivity analysis benefits:
 - Stateless, autoscaling, containers that will scale out to hundreds of audio uploads per minute
 - Using Google neural network to identify language, then translate audio to speech in correct language
-- Then automatically spins up secondary containers via functions to scan and classify sensitive content
+- Triggers secondar function to scan and classify sensitive content, and identify any regular expressions identified in advance
 - Uses all ephemeral local storage or persistent storage, no DB required
 - <150 lines of code per function/container
 - Can be developed and depoyed fully from a Chromebook
@@ -16,7 +16,7 @@ Serverless speech-to-text and sensitivity analysis benefits:
 - All 1P events eliminates a signifigant amount of configuration and security 
 
 To deploy:
-- Enable all appropriate APIs
+- Enable all appropriate APIs (cloud Functions, Cloud Storage, Speech to Text, DLP)
 - Update service permissions 
 - deploy function:      gcloud functions deploy S2T2 --trigger-bucket new-audio
 - deploy function:      gcloud functions deploy DLPQuarantineGCS --trigger-bucket new-audio 
